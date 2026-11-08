@@ -158,6 +158,27 @@ sudo -u jenkins docker info
 > the Docker socket as an administrative privilege and only run trusted
 > repositories on this Jenkins instance.
 
+### WSL note (this environment)
+
+This project was run with Jenkins and Docker inside WSL Ubuntu:
+
+```bash
+# Jenkins runs as a systemd service
+sudo systemctl status jenkins
+
+# Allow the Jenkins service to use the Docker socket
+sudo usermod -aG docker jenkins
+sudo systemctl restart jenkins
+sudo -u jenkins docker info
+
+# Jenkins UI
+# http://localhost:8080
+```
+
+A GitHub webhook cannot reach `localhost` inside WSL, so the Jenkinsfile uses
+`pollSCM`. Use SCM polling for this setup; a webhook would require a tunnel
+such as ngrok/cloudflared.
+
 If Jenkins itself runs in a container, mount the host socket and ensure the
 container user is in the matching group:
 
