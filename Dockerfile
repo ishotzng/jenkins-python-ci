@@ -1,4 +1,3 @@
-# syntax=docker/dockerfile:1
 #
 # Project 8 - container image for the Jenkins Python CI/CD demo.
 #
