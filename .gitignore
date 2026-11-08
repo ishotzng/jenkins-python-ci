@@ -1,3 +1,7 @@
 .venv/
 __pycache__/
 *.py[cod]
+dist/
+reports/
+*.log
+.env

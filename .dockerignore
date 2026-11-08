@@ -1,0 +1,13 @@
+# Keep the Docker build context small and reproducible.
+.git
+.gitignore
+.gitattributes
+.venv
+__pycache__
+*.py[cod]
+*.log
+dist
+reports
+coverage
+README.md
+Jenkinsfile
